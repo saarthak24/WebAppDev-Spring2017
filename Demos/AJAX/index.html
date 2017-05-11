@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Grab Weather Data</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        function getWeather() {
+            zipCode = $("#zipIn").val();
+            var myURL = "http://api.openweathermap.org/data/2.5/weather"
+            var inputData = {
+                zip: zipCode + ",us",
+                apiKey: "a90b512b31f924364b2335029443078d"
+            }
+            $.ajax({
+                url: myURL,
+                success: function(data) {
+                    console.log(data);
+
+                    var tempInK = data.main.temp;
+                    var tempInF = (9 / 5) * (tempInK - 273) + 32
+
+                    var sunrise = data.sys.sunrise;
+                    var sunriseDate = new Date(sunrise * 1000);
+                    var sunriseHours = sunriseDate.getHours();
+                    var sunriseMinutes = "0" + sunriseDate.getMinutes();
+                    var sunriseSeconds = "0" + sunriseDate.getSeconds();
+                    var formattedSunrise = sunriseHours + ':' + sunriseMinutes.substr(-2) + ':' + sunriseSeconds.substr(-2);
+
+                    var sunset = data.sys.sunset;
+                    var sunsetDate = new Date(sunset * 1000);
+                    var sunsetHours = sunsetDate.getHours();
+                    var sunsetMinutes = "0" + sunsetDate.getMinutes();
+                    var sunsetSeconds = "0" + sunsetDate.getSeconds();
+                    var formattedSunset = sunsetHours + ':' + sunsetMinutes.substr(-2) + ':' + sunsetSeconds.substr(-2);
+
+                    $("#output").html("Temperature, " + tempInF + ", Sunrise: " + formattedSunrise + ", Sunset: " + formattedSunset);
+                },
+                data: inputData
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <input type="number" id="zipIn" value="" placeholder="Zip Code">
+    <button type="button" onclick="getWeather()">Retrieve Weather</button>
+    <div id="output">
+
+    </div>
+</body>
+
+</html>

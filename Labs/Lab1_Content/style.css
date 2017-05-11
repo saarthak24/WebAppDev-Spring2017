@@ -1,0 +1,81 @@
+body {
+    background-image: url("http://www.magic4walls.com/wp-content/uploads/2014/01/texture-blue-fonchik-simple-dark-colors-glow-background.jpg");
+    background-size: 100%;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+#sporcle {
+    position: fixed;
+    bottom: 10pt;
+    right: 10pt;
+    font-family: 'PT Sans', sans-serif;
+    color: white;
+}
+
+#timerscoreholder {
+    background-color: black;
+}
+
+#logo {
+    width: 300px;
+    height: 300px;
+    display: none;
+    background-color: white;
+    margin: auto;
+    border: 1px solid black;
+}
+
+#beginGame {
+    border: 10px solid black;
+    width: 300px;
+    height: 300px;
+    display: block;
+    margin: auto;
+    transition: all .2s ease-in-out;
+}
+
+#beginGame:hover {
+    transform: scale(1.1);
+}
+
+#logoDiv {
+    padding: 10px;
+}
+
+#header {
+    text-align: center;
+    font-family: 'Bungee Shade', cursive;
+    color: white;
+    font-size: 60px;
+}
+
+#timer, #score, #feedback, #correctResponses {
+    text-align: center;
+    display: none;
+    font-family: 'PT Sans', sans-serif;
+    color: white;
+}
+
+#answerLabel {
+    font-family: 'PT Sans', sans-serif;
+    color: white;
+    display: none;
+}
+
+#answer {
+    display: none;
+}
+
+#userInput {
+    text-align: center;
+    padding-top: 20px;
+}
+
+#quit, #skip, #restart {
+    display: none;
+}

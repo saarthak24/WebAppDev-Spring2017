@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lab 3</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="site-wrapper">
+        <div class="site-wrapper-inner">
+            <div class="cover-container">
+
+                <div class="inner cover">
+                    <h1 class="cover-heading">GeoIP Tracker</h1>
+
+                    <p class="lead">This API allows you to search the geolocation of IP addresses. It uses a database of IP addresses that are associated with cities along with other relevant information like time zone, latitude and longitude.
+
+                    </p>
+
+                    <form action="javascript:getData();">
+                        <div class="input-group">
+                            <span class="input-group-addon">Address</span>
+                            <input id="msg" type="text" class="form-control" name="msg" placeholder="Additional Info">
+                        </div>
+                    </form>
+
+                    <div id="output">
+
+                    </div>
+                </div>
+
+                <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h3 id="myModalLabel">Modal header</h3>
+                            </div>
+                            <div class="modal-body">
+                                <p id="location"></p>
+                                <p id="zip"></p>
+                                <p id="ip"></p>
+                                <p id="coordinates"></p>
+                                <p id="timezone"></p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mastfoot">
+                    <div class="inner">
+                        <p>© 2017 Saarthak Sethi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

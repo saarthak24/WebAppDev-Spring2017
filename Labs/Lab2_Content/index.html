@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<head>
+    <title>Lab 2</title>
+    <script type="text/javascript" src="script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body onclick="nextElement(event)">
+    <div class="parent"> 1
+        <div class="child">A</div>
+        <div class="child">B</div>
+    </div>
+    <div class="parent">
+        2
+        <div class="child">C</div>
+        <div class="child">D
+            <div class="grandchild">I
+                <div id="spantest" class="child">
+                    Test
+                    <span class="grandspan">Span</span>
+                </div>
+                <p id="paragraphtest" class="child">
+                    Lorem ipsum dolor sit amet, unum discere dolorum ne mel, oportere expetendis disputando ea mei. Te cetero eleifend delicata per, error consulatu ea eam. Eos ne laudem evertitur, at per dicit alienum tacimates. Delectus efficiantur ex mei. Erat sanctus
+                    no nam, mea essent recteque torquatos ei. Mei ut omnesque posidonium efficiendi, ne natum brute corrumpit mel.
+
+                </p>
+                <ul class="child">
+                    <li>-</li>
+                    <li>- -</li>
+                    <li>- - -</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="parent"> 3
+        <div class="child"> E
+            <div class="grandchild">
+                II
+            </div>
+            <div class="grandchild">
+                III
+            </div>
+            <ol class="grandchild">
+                <li>IV</li>
+                <li>V</li>
+                <li>VI</li>
+            </ol>
+        </div>
+        <div class="child"> F
+            <div class="grandchild">
+                VII
+            </div>
+            <div id="last" class="grandchild">
+                VIII
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

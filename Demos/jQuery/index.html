@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery Introduction</title>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript">
+        window.onload = function() {
+            /*var myTag = $('#myDivTag')
+            console.log(myTag.html())
+            $("div").html("Standard")
+            myTag.html("New HTML")*/
+            changeDivs()}
+        function changeDivs() {
+            $('div').each(function(index, value) {
+                $(value).html(Math.floor((Math.random() * 100) + 1));
+            })
+        }
+        </script>
+    </head>
+    <body>
+        <div id="myDivTag">
+            420
+        </div>
+        <div id="secondDiv">
+            240
+        </div>
+        <div class="divs2change">
+        </div>
+        <div class="divs2change">
+        </div>
+        <div class="divs2change">
+        </div>
+        <div class="divs2change">
+        </div>
+        <div class="divs2change">
+        </div>
+        <div class="divs2change">
+        </div>
+        <div class="divs2change">
+        </div>
+        <div class="divs2change">
+        </div>
+        <div class="divs2change">
+        </div>
+        <div class="divs2change">
+        </div>
+        <div class="divs2change">
+        </div>
+    </body>
+</html>

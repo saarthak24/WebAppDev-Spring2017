@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
+    <script>
+        var socket = io();
+        var player;
+
+        socket.on("id", function(data){
+            player = data.id
+        })
+
+        function rockFunction() {
+            socket.emit("choice", {
+                selection: 1
+                id: player
+            });
+        }
+
+        function paperFunction() {
+            socket.emit("choice", {
+                selection: 2
+                id: player
+            })
+        }
+
+        function scissorsFunction() {
+            socket.emit("choice", {
+                selection: 3
+                id: player
+            })
+        }
+
+    </script>
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+    <div class="site-wrapper">
+
+        <div class="site-wrapper-inner">
+
+            <div class="cover-container">
+
+                <div class="inner cover">
+                    <p class="lead">
+                        <button type="button" id="rockButton" onclick="rockFunction()" class="optionButton"></button>
+                        <button type="button" id="paperButton" onclick="paperFunction()" class="optionButton"></button>
+                        <button type="button" id="scissorsButton" onclick="scissorsFunction()" class="optionButton"></button>
+                    </p>
+                    <h1 class="cover-heading">Rock-Paper-Scissors Game</h1>
+                    <h3 class="cover-heading"><i>By: Saarthak Sethi</i></h2>
+                    <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+body {
+	background-image: url("background-blurred.jpg");
+	background-size: 100%;
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+	/* Create the parallax scrolling effect */
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden !important;
+	position: fixed;
+	background-color: black;
+	top: 0px;
+	width: 100%;
+	font-family: 'Roboto', sans-serif;
+}
+
+li {
+	float: right;
+}
+
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li a:hover {
+	background-color: white;
+}
+
+ul li a:hover {
+	color: black;
+}
+
+.home {
+	background-color: rgba(236,240,241, 0.5);
+	padding-top: 50px;
+	padding-bottom: 50px;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+.name-header {
+	color: black;
+	text-align: center;
+}
+
+.sub-header {
+	color: black;
+	text-align: center;
+}
+
+#icon {
+	display: block;
+	margin: 0 auto;
+	border: 10px solid #383838;
+	width: 20%;
+}
+
+.about {
+	background-color: rgb(255,255,255);
+	margin: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-family: 'PT Sans', sans-serif;
+}
+
+p {
+	text-align: center;
+	color: black;
+}
+
+.skills {
+	background-color: rgba(236,240,241, 0.5);
+	margin: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.contact {
+	background-color: rgb(255,255,255);
+	margin: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.github-icon {
+	background-image: url('github-hover.png');
+	height: 48px;
+	width: 48px;
+	margin: 10px;
+	float: left;
+	-webkit-transition: all ease 0.3s;
+	-moz-transition: all ease 0.3s;
+	-o-transition: all ease 0.3s;
+	-ms-transition: all ease 0.3s;
+	transition: all ease 0.3s;
+}
+.github-icon:hover {
+	background-position: 0px -48px;
+	box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.8);
+}
+
+.linkedin-icon {
+	background-image: url('linkedin-hover.png');
+	height: 48px;
+	width: 48px;
+	margin: 10px;
+	float: left;
+	-webkit-transition: all ease 0.3s;
+	-moz-transition: all ease 0.3s;
+	-o-transition: all ease 0.3s;
+	-ms-transition: all ease 0.3s;
+	transition: all ease 0.3s;
+}
+.linkedin-icon:hover {
+	background-position: 0px -48px;
+	box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.8);
+}
+
+
+.facebook-icon {
+	background-image: url('facebook-hover.png');
+	height: 48px;
+	width: 48px;
+	margin: 10px;
+	float: left;
+	-webkit-transition: all ease 0.3s;
+	-moz-transition: all ease 0.3s;
+	-o-transition: all ease 0.3s;
+	-ms-transition: all ease 0.3s;
+	transition: all ease 0.3s;
+}
+.facebook-icon:hover {
+	background-position: 0px -48px;
+	box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.8);
+}

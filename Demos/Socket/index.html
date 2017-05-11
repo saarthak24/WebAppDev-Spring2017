@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
+        <script>
+            var socket = io();
+
+            function buttonClicked(){
+                socket.emit("message", {data: $('#inputMessage').val()});
+        }
+        </script>
+        <title></title>
+    </head>
+    <body>
+        <h1>Chat App</h1>
+        <input type="text" id="inputMessage">
+        <button type="button" onclick="buttonClicked()">Submit</button>
+        <div id="outputMessages">
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Logos Quiz</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|PT+Sans:700" rel="stylesheet">
+    <link rel="shortcut icon" href="" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+    <h1 id="header">Logo Quiz</h1>
+    <div id="timerscoreholder">
+        <h2 id="timer">Time Left: 60 seconds</h2>
+        <h2 id="score">Score: 0/25</h2>
+    </div>
+    <div id="logoDiv">
+        <img src="BeginGame.png" alt="Click to Begin Game" id="beginGame" onclick="start()">
+        <img src="" alt="" id="logo" display="none">
+    </div>
+    <p id="feedback"></p>
+    <div id="userInput">
+        <label for="answer" id="answerLabel">Answer</label>
+        <input type="text" id="answer" class="inputbox" autocomplete="off" />
+        <button type="button" id="skip" onclick="skip()">SKIP (-1 Points)</button>
+        <button type="button" id="restart" onclick="start()">RESTART</button>
+        <button type="button" id="quit" onclick="stop()">QUIT</button>
+    </div>
+    <p id=correctResponses>Correct Answers: </p>
+    <a href="https://www.sporcle.com/" id="sporcle">Play Similar Quizzes & Games!</a>
+</body>
+
+</html>

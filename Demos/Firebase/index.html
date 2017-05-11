@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyD8186WPSrZYGpKDFkrNFilyOdtPQZm4ME",
+            authDomain: "web-demo-d2a1e.firebaseapp.com",
+            databaseURL: "https://web-demo-d2a1e.firebaseio.com",
+            storageBucket: "web-demo-d2a1e.appspot.com",
+            messagingSenderId: "88632919267"
+        };
+        firebase.initializeApp(config);
+        var endpoint = firebase.database().ref("messages/");
+        var provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            var token = result.credential.accessToken;
+            // The signed-in user info.
+            var user = result.user;
+            // ...
+        }).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // The email of the user's account used.
+            var email = error.email;
+            // The firebase.auth.AuthCredential type that was used.
+            var credential = error.credential;
+            // ...
+        });
+        endpoint.on("value", function(snapshot) {
+            console.log(snapshot.val());
+            var msgs = snapshot.val();
+            document.getElementById("output").innerHTML = "";
+            for (var key in msgs) {
+                var curStr = snapshot.val()[key];
+                console.log(curStr);
+                $("#output").append("<div>"+curStr+"</div>")
+            }
+        }, function(errorObject) {
+            console.log("The read failed: " + errorObject.code);
+        });
+
+        function submitData() {
+            var text = $("#text").val();
+            var time = (new Date).getTime();
+            var data2send = {}
+            data2send[time] = text;
+            endpoint.update(data2send);
+        }
+    </script>
+    <title>Firebase Demo</title>
+</head>
+
+<body>
+    <input type="text" id="text">
+    <button type="button" onclick="submitData()">Submit</button>
+    <div id="output"></div>
+</body>
+
+</html>

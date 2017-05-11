@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Timer Example</title>
+    <script type="text/javascript">
+    var curTime = 30;
+      function startTimer() {
+        window.setInterval(decreaseTime, 1000)
+      }
+      function decreaseTime() {
+        curTime--;
+        console.log(curTime)
+      }
+    </script>
+  </head>
+  <body>
+    <button type="button" onclick="startTimer()">Start Timer</button>
+    <div id="timeLeft">
+      30
+    </div>
+  </body>
+</html>

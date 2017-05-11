@@ -1,0 +1,50 @@
+div, span, p, ul, ol {
+    margin: 10px;
+    background-color: gray;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px;
+}
+
+ol, ul {
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.parent {
+    background-color: #002566;
+    width: 30%;
+    border-color: black;
+    color: white;
+}
+
+.child {
+    background-color: #F5002F;
+    border-style: solid;
+    border-color: black;
+}
+
+.grandchild {
+    background-color: #C2CCCC;
+    border-style: solid;
+    border-color: black;
+    margin: 10px;
+}
+
+.grandspan {
+    background-color: #C2CCCC;
+    border-style: solid;
+    border-color: black;
+    margin: 10px;
+}
+
+#spantest {
+    padding: 10px;
+}
+
+body {
+    background-color: white;
+}
