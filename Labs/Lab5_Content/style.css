@@ -2,82 +2,92 @@
  * Globals
  */
 
+
 /* Links */
-a,
-a:focus,
-a:hover {
-  color: #fff;
+
+a, a:focus, a:hover {
+    color: #fff;
 }
+
 
 /*
  * Base structure
  */
 
-html,
-body {
-  height: 100%;
-  background: url("https://static.pexels.com/photos/247372/pexels-photo-247372.jpeg")no-repeat center center fixed;
+html, body {
+    height: 100%;
+    background: url("https://static.pexels.com/photos/247372/pexels-photo-247372.jpeg")no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
+
 body {
-  color: #fff;
-  text-align: center;
-  text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
 }
 
+
 /* Extra markup and styles for table-esque vertical and horizontal centering */
+
 .site-wrapper {
-  display: table;
-  width: 100%;
-  height: 100%; /* For at least Firefox */
-  min-height: 100%;
-  -webkit-box-shadow: inset 0 0 5rem rgba(0,0,0,.5);
-          box-shadow: inset 0 0 5rem rgba(0,0,0,.5);
+    display: table;
+    width: 100%;
+    height: 100%;
+    /* For at least Firefox */
+    min-height: 100%;
+    -webkit-box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
 }
+
 .site-wrapper-inner {
-  display: table-cell;
-  vertical-align: top;
-  color: #fff;
+    display: table-cell;
+    vertical-align: top;
+    color: #fff;
 }
+
 .cover-container {
-  margin-right: auto;
-  margin-left: auto;
+    margin-right: auto;
+    margin-left: auto;
 }
+
 
 /*
  * Cover
  */
 
 .cover {
-  padding: 0 1.5rem;
+    padding: 0 1.5rem;
 }
+
 .cover .btn-lg {
-  padding: .75rem 1.25rem;
-  font-weight: bold;
+    padding: .75rem 1.25rem;
+    font-weight: bold;
 }
+
 
 /*
  * Affix and center
  */
 
 @media (min-width: 40em) {
-  /* Start the vertical centering */
-  .site-wrapper-inner {
-    vertical-align: middle;
-  }
-  /* Handle the widths */
-  .cover-container {
-    width: 100%; /* Must be percentage or pixels for horizontal alignment */
-  }
+    /* Start the vertical centering */
+    .site-wrapper-inner {
+        vertical-align: middle;
+    }
+    /* Handle the widths */
+    .cover-container {
+        width: 100%;
+        /* Must be percentage or pixels for horizontal alignment */
+    }
 }
 
 @media (min-width: 62em) {
-  .cover-container {
-    width: 42rem;
-  }
+    .cover-container {
+        width: 42rem;
+    }
 }
 
 .optionButton {
@@ -86,16 +96,74 @@ body {
     background-size: 100%;
     background-size: 100px auto;
     border: 0px;
+    outline: none;
 }
 
-#rockButton {
-    background: url("rock.png") center no-repeat; background-size: 100% 100%;
+.optionButton.clicked {
+    -webkit-Transform: scale(1.25) rotate(-10deg);
+    -moz-Transform: scale(1.25);
+    -ms-Transform: scale(1.25);
 }
 
-#paperButton {
-    background: url("paper.png") center no-repeat; background-size: 100% 100%;
+.optionButton.won {
+    -webkit-Box-Shadow: 0px 0px 30px 0px rgba(0, 255, 0, 1.0);
+    border-radius:80px;
 }
 
-#scissorsButton {
-    background: url("scissors.png") center no-repeat; background-size: 100% 100%;
+.optionButton.lost {
+    -webkit-Box-Shadow: 0px 0px 30px 0px rgba(255, 0, 0, 1.0);
+    border-radius:80px;
+}
+
+.optionButton.tie {
+    -webkit-Box-Shadow: 0px 0px 30px 0px rgba(0, 0, 0, 1.0);
+    border-radius:80px;
+}
+
+#gameButtons, #oppGameButtons {
+    background-color: white;
+    border: 5px solid black;
+    color: black;
+    width: 30em;
+    display: inline-block;
+    margin: 10px;
+}
+
+#rockButton, #paperButton, #scissorsButton {
+    -webkit-transition: all 0.5s ease;
+    /* Safari and Chrome */
+    -moz-transition: all 0.2s ease;
+    /* Firefox */
+    -ms-transition: all 0.2s ease;
+    /* IE 9 */
+    -o-transition: all 0.2s ease;
+    /* Opera */
+    transition: all 0.2s ease;
+}
+
+#rockButton:hover, #paperButton:hover, #scissorsButton:hover {
+    -webkit-transform: scale(1.25) rotate(-10deg);
+    /* Safari and Chrome */
+    -moz-transform: scale(1.25);
+    /* Firefox */
+    -ms-transform: scale(1.25);
+}
+
+#rockButton, #oppRockButton {
+    background: url("rock.png") center no-repeat;
+    background-size: 100% 100%;
+}
+
+#paperButton, #oppPaperButton {
+    background: url("paper.png") center no-repeat;
+    background-size: 100% 100%;
+}
+
+#scissorsButton, #oppScissorsButton {
+    background: url("scissors.png") center no-repeat;
+    background-size: 100% 100%;
+}
+
+#timer {
+    margin-bottom: -8px;
 }
