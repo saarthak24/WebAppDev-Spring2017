@@ -13,107 +13,8 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-    <script type="text/javascript" src="script.js"></script>
-
     <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
-    <script>
-        var socket = io();
-        var choice;
-
-        function rockFunction() {
-            socket.emit("choice", {
-                selection: 1
-            });
-            choice = 1;
-            $("#rockButton").toggleClass('clicked');
-            $("#rockButton").prop("onclick", false);
-            $("#paperButton").prop("onclick", false);
-            $("#scissorsButton").prop("onclick", false);
-        }
-
-        function paperFunction() {
-            socket.emit("choice", {
-                selection: 2
-            })
-            choice = 2;
-            $("#paperButton").toggleClass('clicked');
-            $("#rockButton").prop("onclick", false);
-            $("#paperButton").prop("onclick", false);
-            $("#scissorsButton").prop("onclick", false);
-        }
-
-        function scissorsFunction() {
-            socket.emit("choice", {
-                selection: 3
-            })
-            choice = 3;
-            $("#scissorsButton").toggleClass('clicked');
-            $("#rockButton").prop("onclick", false);
-            $("#paperButton").prop("onclick", false);
-            $("#scissorsButton").prop("onclick", false);
-        }
-
-        socket.on("start", function(data) {
-            if (data.start) {
-                start()
-            }
-        })
-
-        socket.on("outcome", function(data) {
-            console.log(data.winnerChoice)
-            stop()
-            var winner = data.winnerChoice;
-            var loser = data.loserChoice;
-            if (winner != loser) {
-                if (choice == winner) {
-                    document.getElementById("timer").innerHTML = "You won!";
-                    if (winner == 1) {
-                        $("#rockButton").toggleClass('won');
-                    } else if (winner == 2) {
-                        $("#paperButton").toggleClass('won');
-                    } else {
-                        $("#scissorsButton").toggleClass('won');
-                    }
-                    if (loser == 1) {
-                        $("#oppRockButton").toggleClass('lost');
-                    } else if (loser == 2) {
-                        $("#oppPaperButton").toggleClass('lost');
-                    } else {
-                        $("#oppScissorsButton").toggleClass('lost');
-                    }
-                } else if (choice == loser) {
-                    document.getElementById("timer").innerHTML = "You lost!";
-                    if (winner == 1) {
-                        $("#oppRockButton").toggleClass('won');
-                    } else if (winner == 2) {
-                        $("#oppPaperButton").toggleClass('won');
-                    } else {
-                        $("#oppScissorsButton").toggleClass('won');
-                    }
-                    if (loser == 1) {
-                        $("#rockButton").toggleClass('lost');
-                    } else if (loser == 2) {
-                        $("#paperButton").toggleClass('lost');
-                    } else {
-                        $("#scissorsButton").toggleClass('lost');
-                    }
-                }
-            } else {
-                document.getElementById("timer").innerHTML = "You tied!";
-                if (winner == 1) {
-                    $("#oppRockButton").toggleClass('tie');
-                    $("#rockButton").toggleClass('tie');
-                } else if (winner == 2) {
-                    $("#oppPaperButton").toggleClass('tie');
-                    $("#paperButton").toggleClass('tie');
-                } else {
-                    $("#oppScissorsButton").toggleClass('tie');
-                    $("#scissorsButton").toggleClass('tie');
-                }
-            }
-        })
-    </script>
+    <script type="text/javascript" src="script.js"></script>
     <title>Rock Paper Scissors</title>
 </head>
 
@@ -121,8 +22,8 @@
     <div class="site-wrapper">
 
         <div class="site-wrapper-inner">
-                    <h1 class="heading" id="title">Rock-Paper-Scissors Game</h1>
-                    <p class="lead" id="subtitle"><i>By: Saarthak Sethi</i></p>
+                    <h1 class="heading">Rock-Paper-Scissors Game</h1>
+                    <p class="lead"><i>By: Saarthak Sethi</i></p>
 
             <p class="lead" id="timer"><b>Time Left: ∞ seconds</b></h2>
 

@@ -93,8 +93,6 @@ body {
 .optionButton {
     width: 100px;
     height: 100px;
-    background-size: 100%;
-    background-size: 100px auto;
     border: 0px;
     outline: none;
 }
@@ -107,12 +105,12 @@ body {
 
 .optionButton.won {
     -webkit-Box-Shadow: 0px 0px 30px 0px rgba(0, 255, 0, 1.0);
-    border-radius:80px;
+    border-radius:100px;
 }
 
 .optionButton.lost {
     -webkit-Box-Shadow: 0px 0px 30px 0px rgba(255, 0, 0, 1.0);
-    border-radius:80px;
+    border-radius:100px;
 }
 
 .optionButton.tie {
@@ -151,17 +149,18 @@ body {
 
 #rockButton, #oppRockButton {
     background: url("rock.png") center no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
 }
+
 
 #paperButton, #oppPaperButton {
     background: url("paper.png") center no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
 }
 
 #scissorsButton, #oppScissorsButton {
     background: url("scissors.png") center no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
 }
 
 #timer {

@@ -76,17 +76,29 @@ io.on("connection", function(socket) {
                     winnerChoice: 1,
                     loserChoice: 1
                 });
+                socket.broadcast.emit("outcome", {
+                    winnerChoice: 1,
+                    loserChoice: 1
+                });
             }
             if (choiceOne == 2 && choiceTwo == 2) {
                 console.log("Tie!")
                 socket.emit("outcome", {
-                    winnerChoice:2,
-                    loserChoice:2
+                    winnerChoice: 2,
+                    loserChoice: 2
+                });
+                socket.broadcast.emit("outcome", {
+                    winnerChoice: 2,
+                    loserChoice: 2
                 });
             }
             if (choiceOne == 3 && choiceTwo == 3) {
                 console.log("Tie!")
                 socket.emit("outcome", {
+                    winnerChoice: 3,
+                    loserChoice: 3
+                });
+                socket.broadcast.emit("outcome", {
                     winnerChoice: 3,
                     loserChoice: 3
                 });
@@ -97,10 +109,18 @@ io.on("connection", function(socket) {
                     winnerChoice: 2,
                     loserChoice: 1
                 });
+                socket.broadcast.emit("outcome", {
+                    winnerChoice: 2,
+                    loserChoice: 1
+                });
             }
             if (choiceOne == 1 && choiceTwo == 3) {
                 console.log("Rock won!")
                 socket.emit("outcome", {
+                    winnerChoice: 1,
+                    loserChoice: 3
+                });
+                socket.broadcast.emit("outcome", {
                     winnerChoice: 1,
                     loserChoice: 3
                 });
@@ -111,10 +131,18 @@ io.on("connection", function(socket) {
                     winnerChoice: 2,
                     loserChoice: 1
                 });
+                socket.broadcast.emit("outcome", {
+                    winnerChoice: 2,
+                    loserChoice: 1
+                });
             }
             if (choiceOne == 2 && choiceTwo == 3) {
                 console.log("Scissors won!")
                 socket.emit("outcome", {
+                    winnerChoice: 3,
+                    loserChoice: 2
+                });
+                socket.broadcast.emit("outcome", {
                     winnerChoice: 3,
                     loserChoice: 2
                 });
@@ -125,10 +153,18 @@ io.on("connection", function(socket) {
                     winnerChoice: 1,
                     loserChoice: 3
                 });
+                socket.broadcast.emit("outcome", {
+                    winnerChoice: 1,
+                    loserChoice: 3
+                });
             }
             if (choiceOne == 3 && choiceTwo == 2) {
                 console.log("Scissors won!")
                 socket.emit("outcome", {
+                    winnerChoice: 3,
+                    loserChoice: 2
+                });
+                socket.broadcast.emit("outcome", {
                     winnerChoice: 3,
                     loserChoice: 2
                 });
