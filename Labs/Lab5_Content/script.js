@@ -1,4 +1,4 @@
-var curTime = 3;
+var curTime = 10;
 var timer;
 var socket = io();
 var choice;
@@ -48,7 +48,9 @@ socket.on("outcome", function(data) {
     var loser = data.loserChoice;
     if (winner != loser) {
         if (choice == winner) {
-            document.getElementById("timer").innerHTML = "You won!";
+            if (loser != 0) {
+                document.getElementById("timer").innerHTML = "You won!";
+            }
             if (winner == 1) {
                 $("#rockButton").toggleClass('won');
             } else if (winner == 2) {
@@ -56,7 +58,10 @@ socket.on("outcome", function(data) {
             } else {
                 $("#scissorsButton").toggleClass('won');
             }
-            if (loser == 1) {
+            if (loser == 0) {
+                document.getElementById("timer").innerHTML = "You won on time!";
+            }
+            else if (loser == 1) {
                 $("#oppRockButton").toggleClass('lost');
                 $("#oppRockButton").toggleClass('clicked');
             } else if (loser == 2) {
@@ -66,11 +71,23 @@ socket.on("outcome", function(data) {
                 $("#oppScissorsButton").toggleClass('lost');
                 $("#oppScissorsButton").toggleClass('clicked');
             }
+        } else if (choice == 0) {
+            document.getElementById("timer").innerHTML = "You lost on time!";
+            if (winner == 1) {
+                $("#oppRockButton").toggleClass('won');
+                $("#oppRockButton").toggleClass('clicked');
+            } else if (winner == 2) {
+                $("#oppPaperButton").toggleClass('won');
+                $("#oppPaperButton").toggleClass('clicked');
+            } else {
+                $("#oppScissorsButton").toggleClass('won');
+                $("#oppScissorsButton").toggleClass('clicked');
+            }
         } else if (choice == loser) {
             document.getElementById("timer").innerHTML = "You lost!";
             if (winner == 1) {
                 $("#oppRockButton").toggleClass('won');
-                    $("#oppRockButton").toggleClass('clicked');
+                $("#oppRockButton").toggleClass('clicked');
             } else if (winner == 2) {
                 $("#oppPaperButton").toggleClass('won');
                 $("#oppPaperButton").toggleClass('clicked');
@@ -85,9 +102,6 @@ socket.on("outcome", function(data) {
             } else {
                 $("#scissorsButton").toggleClass('lost');
             }
-        }
-        else if (choice == 0) {
-            
         }
     } else {
         document.getElementById("timer").innerHTML = "You tied!";
@@ -109,7 +123,7 @@ socket.on("outcome", function(data) {
 
 function start() {
     clearInterval(timer);
-	curTime = 3;
+    curTime = 10;
     startTimer();
 };
 
@@ -120,7 +134,7 @@ function stop() {
 
 function stopTimer() {
     clearInterval();
-    curTime = 3;
+    curTime = 10;
 }
 
 function startTimer() {
@@ -133,9 +147,9 @@ function decreaseTime() {
     if (curTime < 0) {
         stop();
         socket.emit("choice", {
-            selection: 2
+            selection: 0
         })
-        choice = 2;
+        choice = 0;
         $("#rockButton").prop("onclick", false);
         $("#paperButton").prop("onclick", false);
         $("#scissorsButton").prop("onclick", false);

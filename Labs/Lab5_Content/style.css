@@ -91,8 +91,10 @@ body {
 }
 
 .optionButton {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+    margin-top: 15px;
     border: 0px;
     outline: none;
 }
@@ -104,17 +106,17 @@ body {
 }
 
 .optionButton.won {
-    -webkit-Box-Shadow: 0px 0px 30px 0px rgba(0, 255, 0, 1.0);
-    border-radius:100px;
+    -webkit-Box-Shadow: 0px 0px 40px 0px rgba(0, 255, 0, 1.0);
+    border-radius:80px;
 }
 
 .optionButton.lost {
-    -webkit-Box-Shadow: 0px 0px 30px 0px rgba(255, 0, 0, 1.0);
-    border-radius:100px;
+    -webkit-Box-Shadow: 0px 0px 40px 0px rgba(255, 0, 0, 1.0);
+    border-radius:80px;
 }
 
 .optionButton.tie {
-    -webkit-Box-Shadow: 0px 0px 30px 0px rgba(0, 0, 0, 1.0);
+    -webkit-Box-Shadow: 0px 0px 40px 0px rgba(0, 0, 0, 1.0);
     border-radius:80px;
 }
 
@@ -125,6 +127,15 @@ body {
     width: 30em;
     display: inline-block;
     margin: 10px;
+}
+
+#status {
+    background-color: pink;
+    border: 5px solid black;
+    width: 30em;
+    display: inline-block;
+    padding: 10px;
+    margin-bottom: -8px;
 }
 
 #rockButton, #paperButton, #scissorsButton {
@@ -161,8 +172,4 @@ body {
 #scissorsButton, #oppScissorsButton {
     background: url("scissors.png") center no-repeat;
     background-size: cover;
-}
-
-#timer {
-    margin-bottom: -8px;
 }

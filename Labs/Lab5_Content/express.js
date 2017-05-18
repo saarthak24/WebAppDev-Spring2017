@@ -5,7 +5,6 @@ var server = app.listen(3000);
 console.log('Listening on 3000')
 console.log('http://localhost:3000/')
 var io = require('socket.io').listen(server);
-var users = [];
 var players = 0;
 var turnOne = true;
 var turnTwo = true;
@@ -53,6 +52,11 @@ io.on("connection", function(socket) {
                 });
             }
         } else if (!turnOne) {
+            if (data.selection == 0) {
+                console.log("No selection was made by user 2")
+                choiceTwo = 0;
+                turnTwo = false;
+            }
             if (data.selection == 1) {
                 console.log("Rock was selected by user 2")
                 choiceTwo = 1;
@@ -169,6 +173,43 @@ io.on("connection", function(socket) {
                     loserChoice: 2
                 });
             }
+            if (choiceOne == 1 && choiceTwo == 0) {
+                console.log("Rock won on time!")
+                socket.emit("outcome", {
+                    winnerChoice: 1,
+                    loserChoice: 0
+                });
+                socket.broadcast.emit("outcome", {
+                    winnerChoice: 1,
+                    loserChoice: 0
+                });
+            }
+            if (choiceOne == 2 && choiceTwo == 0) {
+                console.log("Paper won on time!")
+                socket.emit("outcome", {
+                    winnerChoice: 2,
+                    loserChoice: 0
+                });
+                socket.broadcast.emit("outcome", {
+                    winnerChoice: 2,
+                    loserChoice: 0
+                });
+            }
+            if (choiceOne == 3 && choiceTwo == 0) {
+                console.log("Scissors won on time!")
+                socket.emit("outcome", {
+                    winnerChoice: 3,
+                    loserChoice: 0
+                });
+                socket.broadcast.emit("outcome", {
+                    winnerChoice: 3,
+                    loserChoice: 0
+                });
+            }
+            turnOne = true;
+            turnTwo = true;
+            choiceOne = 0;
+            choiceTwo = 0;
         }
     })
 })
