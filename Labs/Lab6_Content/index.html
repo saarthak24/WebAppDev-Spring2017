@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+    <div class="site-wrapper">
+
+        <div class="site-wrapper-inner">
+            <h1 class="heading">Rock-Paper-Scissors Game</h1>
+            <p class="lead"><i>By: Saarthak Sethi</i></p>
+
+            <div id="status">
+                <p class="lead" id="timer"><b>Time Left: ∞ seconds</b></h2></p><br>
+                <button type="button" id="restart" class="btn btn-secondary" onclick="restartGame()">Restart</button>
+            </div>
+            <br>
+
+            <div id="gameButtons"> YOU
+                <p class="lead">
+                    <button type="button" id="rockButton" onclick="rockFunction()" class="optionButton"></button>
+                    <button type="button" id="paperButton" onclick="paperFunction()" class="optionButton"></button>
+                    <button type="button" id="scissorsButton" onclick="scissorsFunction()" class="optionButton"></button>
+                </p>
+            </div>
+
+            <div id="oppGameButtons"> OPPONENT
+                <p class="lead">
+                    <button type="button" id="oppRockButton" class="optionButton"></button>
+                    <button type="button" id="oppPaperButton" class="optionButton"></button>
+                    <button type="button" id="oppScissorsButton" class="optionButton"></button>
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
