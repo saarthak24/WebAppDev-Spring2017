@@ -187,3 +187,7 @@ body {
     margin-top: -50px;
     display: none;
 }
+
+#resTable {
+    margin: 0 auto;
+}

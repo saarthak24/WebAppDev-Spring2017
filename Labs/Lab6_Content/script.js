@@ -4,6 +4,7 @@ var socket = io();
 var choice;
 var restartButton;
 var options = ['None', 'Rock', 'Paper', 'Scissors'];
+var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 $(document).ready(function() {
     restartButton = document.getElementById("restart");
 });
@@ -135,8 +136,16 @@ socket.on("restarted", function(data) {
 })
 
 socket.on("query", function(data) {
+    var tempTime = new Date(1000 * data.sqlFour);
+    var year = tempTime.getFullYear();
+    var month = months[tempTime.getMonth()];
+    var date = tempTime.getDate();
+    var hour = tempTime.getHours();
+    var min = tempTime.getMinutes();
+    var sec = tempTime.getSeconds();
+    var convertedTime = month + ' ' + date + ', ' + year + ', ' + month + ' ' + ' ' + hour + ':' + min + ':' + sec;
     var row = $("<tr>");
-    row.append($("<td>" + options[data.sqlOne] + "</td>")).append($("<td>" + options[data.sqlTwo] + "</td>")).append($("<td>" + data.sqlThree + "</td>")).append($("<td>" + data.sqlFour + "</td>"));
+    row.append($("<td>" + options[data.sqlOne] + "</td>")).append($("<td>" + options[data.sqlTwo] + "</td>")).append($("<td>" + data.sqlThree + "</td>")).append($("<td>" + convertedTime + "</td>"));
     $("#resTable tbody").append(row);
 })
 

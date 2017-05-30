@@ -248,9 +248,7 @@ io.on("connection", function(socket) {
     })
 
     socket.on("restart", function(data) {
-        socket.emit("restarted", {
-        });
-        socket.broadcast.emit("restarted", {
-        });
+        socket.emit("restarted", {});
+        socket.broadcast.emit("restarted", {});
     })
 })
