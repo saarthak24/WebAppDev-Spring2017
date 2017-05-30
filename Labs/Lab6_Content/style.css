@@ -129,6 +129,15 @@ body {
     margin: 10px;
 }
 
+#results {
+    background-color: #95A5A6;
+    border: 5px solid black;
+    color: white;
+    width: 30em;
+    display: inline-block;
+    margin: 10px;
+}
+
 #status {
     background-color: pink;
     border: 5px solid black;

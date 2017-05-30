@@ -3,7 +3,8 @@ var timer;
 var socket = io();
 var choice;
 var restartButton;
-$( document ).ready(function() {
+var options = ['None', 'Rock', 'Paper', 'Scissors'];
+$(document).ready(function() {
     restartButton = document.getElementById("restart");
 });
 
@@ -126,12 +127,17 @@ socket.on("outcome", function(data) {
 })
 
 function restartGame() {
-    socket.emit("restart", {
-    })
+    socket.emit("restart", {})
 };
 
 socket.on("restarted", function(data) {
     window.location.reload();
+})
+
+socket.on("query", function(data) {
+    var row = $("<tr>");
+    row.append($("<td>" + options[data.sqlOne] + "</td>")).append($("<td>" + options[data.sqlTwo] + "</td>")).append($("<td>" + data.sqlThree + "</td>")).append($("<td>" + data.sqlFour + "</td>"));
+    $("#resTable tbody").append(row);
 })
 
 function start() {
