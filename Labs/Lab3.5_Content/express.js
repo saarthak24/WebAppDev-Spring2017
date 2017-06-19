@@ -21,6 +21,9 @@ app.get("/Lab3_Content/index.html", function(request, response) {
 app.get("/Lab5_Content/index.html", function(request, response) {
     response.sendFile('index.html', {root: __dirname + '/../Lab5_Content'})
 })
+app.get("/Lab6_Content/index.html", function(request, response) {
+    response.sendFile('index.html', {root: __dirname + '/../Lab6_Content'})
+})
 app.use('/', express.static(path.join(__dirname, '/../')))
 //http listen
 app.listen(3000, function() {

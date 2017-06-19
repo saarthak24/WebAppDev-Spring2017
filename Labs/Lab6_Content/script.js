@@ -145,8 +145,16 @@ socket.on("query", function(data) {
     var sec = tempTime.getSeconds();
     var convertedTime = month + ' ' + date + ', ' + year + ', ' + month + ' ' + ' ' + hour + ':' + min + ':' + sec;
     var row = $("<tr>");
-    row.append($("<td>" + options[data.sqlOne] + "</td>")).append($("<td>" + options[data.sqlTwo] + "</td>")).append($("<td>" + data.sqlThree + "</td>")).append($("<td>" + convertedTime + "</td>"));
-    $("#resTable tbody").append(row);
+    row.append($("<td>" + convertedTime + "</td>")).append($("<td>" + options[data.sqlOne] + "</td>")).append($("<td>" + options[data.sqlTwo] + "</td>")).append($("<td>" + data.sqlThree + "</td>"));
+    var a = $('td:first', row.parents('tr')).text();
+    var b = $('td:first', row.prev().parents('tr')).text();
+    if (b != null) {
+        if (a.toLowerCase() != b.toLowerCase()) {
+            $("#resTable tbody").append(row);
+        }
+    } else {
+        $("#resTable tbody").append(row);
+    }
 })
 
 function start() {
